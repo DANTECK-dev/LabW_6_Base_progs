@@ -14,6 +14,7 @@ int First() {
 	случае возвращает 0. Можно возвращать значение типа bool.*/
 
 	srand(time(0));
+
 	int arr[N]{ 0 }, sum_ch = 0, sum_nch = 0;
 
 	for (int i = 0; i < N; i++) {
@@ -25,6 +26,7 @@ int First() {
 
 	cout << endl;
 	cout << sum_ch<<"\t"<<sum_nch<<endl;
+
 	if (sum_ch > sum_nch) {
 		cout << "chet > ne_chet";
 			return 1;
@@ -37,10 +39,11 @@ int First() {
 
 }
 
-void main1() {
+void main() {
 	setlocale(LC_ALL, "rus");
 	string str;
 	First();
+	cout << endl;
 }
 
 
@@ -85,7 +88,7 @@ void Second (char *str){
 
 
 
-void main() {
+void main2() {
 	setlocale(LC_ALL, "rus");
 	char str[M] = { "\0" };
 	cout << "Enter the text: ";

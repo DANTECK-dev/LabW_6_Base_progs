@@ -42,7 +42,8 @@ int First() {
 void main() {
 	setlocale(LC_ALL, "rus");
 	string str;
-	First();
+	int res;
+	res = First();
 	cout << endl;
 }
 
@@ -54,44 +55,50 @@ void main() {
 
 
 
-void Second (char *str){
+int *Second (char str[], char*& result) {
 	/*2) Написать функцию, которая принимает строку.В качестве результата возвращает
 	число символов в строке, которые повторяются(идут подряд).К примеру,
 	строка «б аааа ббб сс», результат работы функции – число 6 (а - 3, б – 2, с - 1).*/
 
-	char seps[] = " .,\t\n~!@#$%^&*():{}[]./-+<>?;", first('\0');
-	char *token = NULL;
+	int len = strlen(str), count(1), char_count = 0;;
+	result = new char[len]{ '\0' };
+	int* MassCount = new int[len]{ 0 };
 
-	int identical(1), len(0);
+	for (int i = 0; i < len; i++)
+	{
+		char c1 = str[i];
+		char c2 = str[i+1];
 
-	token = strtok(str, seps);
-
-	while (token != NULL) {
-		len=strlen(token);
-
-		for (int i = 0; i < len; i++) {
-			first = token[i];
-
-			if (first == token[i+1]) {
-				identical++;
-			}
-
-			else {
-				cout << first << " " << identical << endl;
-				identical = 1;
-			}
+		if (c1 == c2)
+			count++;
+		else
+		{
+			result[char_count] = c1;
+			MassCount[char_count] = count;
+			char_count++;
+			count = 1;
 		}
-
-		token = strtok(NULL, seps);
 	}
+	return MassCount;
 }
 
 
 
 void main2() {
 	setlocale(LC_ALL, "rus");
-	char str[M] = { "\0" };
+
+	char str[M];
+	char* result;
+
 	cout << "Enter the text: ";
 	gets_s(str);
-	Second (str);
+
+ 	int* countS= Second (str, result);
+	int len = strlen(result);
+
+	for (int i = 0; i < len; i++)
+	{
+		cout << result[i] << " - " << countS[i] << endl;
+	}
+	system("pause");
 }

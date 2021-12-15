@@ -8,18 +8,16 @@
 #define M 1000
 using namespace std;
 
-int First() {
+int First(int arr[]) {
 	/*1) Написать функцию, которая возвращает 1, если количество четных
 	элементов одномерного массива больше количества нечетных. В противном
 	случае возвращает 0. Можно возвращать значение типа bool.*/
 
-	srand(time(0));
 
-	int arr[N]{ 0 }, sum_ch = 0, sum_nch = 0;
+	int sum_ch = 0, sum_nch = 0;
 
 	for (int i = 0; i < N; i++) {
-		arr[i] = rand() % 100;
-		if (arr[i] % 2 == 0) sum_ch += arr[i];
+		if (arr[i] % 2 == 0) sum_ch  += arr[i];
 		if (arr[i] % 2 == 1) sum_nch += arr[i];
 		cout << arr[i] << " ";
 	}
@@ -39,12 +37,18 @@ int First() {
 
 }
 
-void main() {
+void maidn() {
 	setlocale(LC_ALL, "rus");
-	string str;
+	int arr[N]{ 0 };
+	srand(time(0));
+
+	for (int i = 0; i < N; i++)
+		arr[i] = rand() % 100;
+
 	int res;
-	res = First();
-	cout << endl;
+	res = First(arr);
+
+	cout << endl << res << endl;
 }
 
 
@@ -84,7 +88,7 @@ int *Second (char str[], char*& result) {
 
 
 
-void main2() {
+void main() {
 	setlocale(LC_ALL, "rus");
 
 	char str[M];
